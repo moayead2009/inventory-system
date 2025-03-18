@@ -1,0 +1,36 @@
+{{>partials/header}}
+
+<div class="container">
+    {{#message}}
+    <div id="welcome-message" class="alert">{{message}}</div>
+    {{/message}}
+
+    <h1>Welcome to Inventory Management</h1>
+    <p>Manage your products, track transactions, and optimize your inventory in one place.</p>
+
+    <div class="stats">
+        <div class="stat-box">
+            <h2>{{productCount}}</h2>
+            <p>Products</p>
+        </div>
+        <div class="stat-box">
+            <h2>{{transactionCount}}</h2>
+            <p>Transactions</p>
+        </div>
+        <div class="stat-box">
+            <h2>{{userCount}}</h2>
+            <p>Users</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    setTimeout(() => {
+        const message = document.getElementById("welcome-message");
+        if (message) {
+            message.style.display = "none";
+        }
+    }, 2000);
+</script>
+
+{{>partials/footer}}

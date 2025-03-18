@@ -1,0 +1,111 @@
+{{>partials/header}}
+
+{{#message}}
+<div class="success-message">{{message}}</div>
+{{/message}}
+
+<div class="form-container product-form">
+    <h2 class="title">Add Product</h2>
+    <form action="/products/add" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div class="form-group">
+                <label>Category:</label>
+                <select name="category" required>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Furniture">Furniture</option>
+                    <option value="Accessories">Accessories</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" name="quantity" required>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="number" step="0.01" name="price" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Supplier ID:</label>
+                <input type="number" name="supplier_id" required>
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <textarea name="description"></textarea>
+            </div>
+        </div>
+
+        <button type="submit">Add Product</button>
+    </form>
+</div>
+
+<div class="form-container product-form">
+    <h2 class="title">Product List</h2>
+    <div class="search-filter-sort">
+        <form action="/products" method="GET">
+            <input type="text" name="search" placeholder="Search by name..." value="{{searchQuery}}">
+            <select name="filterCategory">
+                <option value="">All Categories</option>
+                <option value="Electronics" {{#selectedElectronics}}selected{{/selectedElectronics}}>Electronics</option>
+                <option value="Furniture" {{#selectedFurniture}}selected{{/selectedFurniture}}>Furniture</option>
+                <option value="Accessories" {{#selectedAccessories}}selected{{/selectedAccessories}}>Accessories</option>
+            </select>
+            <select name="sortBy">
+                <option value="name" {{#sortName}}selected{{/sortName}}>Sort by Name</option>
+                <option value="priceAsc" {{#sortPriceAsc}}selected{{/sortPriceAsc}}>Price (Low to High)</option>
+                <option value="priceDesc" {{#sortPriceDesc}}selected{{/sortPriceDesc}}>Price (High to Low)</option>
+                <option value="quantity" {{#sortQuantity}}selected{{/sortQuantity}}>Quantity</option>
+            </select>
+            <button type="submit">Apply</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Supplier</th>
+            <th>Actions</th>
+        </tr>
+        {{#products}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{category}}</td>
+            <td>
+                {{#lowStock}}<span class="low-stock">{{quantity}}</span>{{/lowStock}}
+                {{^lowStock}}{{quantity}}{{/lowStock}}
+            </td>
+            <td>${{price}}</td>
+            <td>{{supplier_id}}</td>
+            <td>
+                <form action="/products/delete/{{product_id}}" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="/products/edit/{{product_id}}">Edit</a>
+            </td>
+        </tr>
+        {{/products}}
+    </table>
+</div>
+
+<script>
+    setTimeout(() => {
+        const message = document.querySelector(".success-message, .error-message");
+        if (message) {
+            message.style.display = "none";
+        }
+    }, 5000);
+</script>
+
+{{>partials/footer}}

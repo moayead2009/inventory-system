@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Inventory Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+    <div id="menu-toggle">&#9776;</div>
+    <ul id="nav-links">
+        <li><img src="/images/logo.png" alt="Logo" class="logo"></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/products">Products</a></li>
+        <li><a href="/transactions">Transactions</a></li>
+
+        {{#user}}
+        <li><a href="/logout">Logout</a></li>
+        <li class="welcome-text">Welcome, {{user.username}}</li>
+        {{/user}}
+
+        {{^user}}
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+        {{/user}}
+    </ul>
+</nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById("menu-toggle");
+    if (menuToggle) {
+        menuToggle.addEventListener("click", function() {
+            document.body.classList.toggle("menu-open");
+        });
+    }
+});
+</script>

@@ -1,0 +1,23 @@
+{{>partials/header}}
+
+<div class="form-container product-form">
+<h2 class="title">Transaction History</h2>
+<table>
+    <tr>
+        <th>Product ID</th>
+        <th>Quantity</th>
+        <th>Type</th>
+        <th>Date</th>
+    </tr>
+    {{#transactions}}
+    <tr>
+        <td>{{product_id}}</td>
+        <td>{{quantity}}</td>
+        <td>{{transaction_type}}</td>
+        <td>{{date}}</td>
+    </tr>
+    {{/transactions}}
+</table>
+</div>
+
+{{>partials/footer}}

@@ -1,0 +1,43 @@
+{{>partials/header}}
+
+<div class="form-container product-form">
+    <h2 class="title">Update Product</h2>
+    <form action="/products/update/{{product.product_id}}" method="POST">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" name="name" value="{{product.name}}" required>
+            </div>
+            <div class="form-group">
+                <label>Category:</label>
+                <input type="text" name="category" value="{{product.category}}" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Quantity:</label>
+                <input type="number" name="quantity" value="{{product.quantity}}" required>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <input type="number" step="0.01" name="price" value="{{product.price}}" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Supplier ID:</label>
+                <input type="number" name="supplier_id" value="{{product.supplier_id}}" required>
+            </div>
+            <div class="form-group">
+                <label>Description:</label>
+                <textarea name="description">{{product.description}}</textarea>
+            </div>
+        </div>
+
+        <button type="submit">Update Product</button>
+    </form>
+</div>
+
+{{>partials/footer}}

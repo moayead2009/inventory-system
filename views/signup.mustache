@@ -1,0 +1,26 @@
+{{>partials/header}}
+
+<div class="form-container">
+    <h1>Sign Up</h1>
+
+    {{#error}}
+    <p class="error-message">{{error}}</p>
+    {{/error}}
+
+    {{#success}}
+    <p class="success-message">{{success}}</p>
+    {{/success}}
+
+    <form action="/signup" method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+</div>
+
+{{>partials/footer}}
