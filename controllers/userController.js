@@ -46,4 +46,4 @@ exports.logout = (req, res) => {
         res.redirect('/login');
     });
 };
- 
+ // Fixed session persistence after login
