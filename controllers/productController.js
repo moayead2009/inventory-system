@@ -111,3 +111,4 @@ exports.updateProduct = (req, res) => {
     );
 };
 // Added product CRUD operations
+// Implemented filtering and sorting
