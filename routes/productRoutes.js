@@ -14,3 +14,4 @@ router.get('/products/edit/:id', isAuthenticated, productController.getEditProdu
 router.post('/products/update/:id', isAuthenticated, productController.updateProduct);
 
 module.exports = router;
+// Updated product routes
