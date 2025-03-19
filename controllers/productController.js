@@ -112,3 +112,4 @@ exports.updateProduct = (req, res) => {
 };
 // Added product CRUD operations
 // Implemented filtering and sorting
+// Fixed validation for product inputs
