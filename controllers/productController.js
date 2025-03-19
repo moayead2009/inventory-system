@@ -114,3 +114,4 @@ exports.updateProduct = (req, res) => {
 // Implemented filtering and sorting
 // Fixed validation for product inputs
 // Implemented low stock alert
+// Added success and error messages
