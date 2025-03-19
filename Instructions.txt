@@ -28,4 +28,4 @@ You need to signup using any email and password, then use is to login.
 ## Notes:
 - Ensure SQLite database (inventory.db) exists in the models/ folder.
 - If the database file (inventory.db) is missing, run this command to generate it:
-  node models/database.js
+  node models/database.js  
