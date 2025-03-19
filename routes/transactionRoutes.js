@@ -11,3 +11,4 @@ router.get('/transactions', isAuthenticated, transactionController.getTransactio
 router.post('/transactions/add', isAuthenticated, transactionController.addTransaction);
 
 module.exports = router;
+// Updated transaction routes

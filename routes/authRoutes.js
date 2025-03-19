@@ -31,3 +31,4 @@ router.post('/login', userController.login);
 router.get('/logout', userController.logout);
 
 module.exports = router;
+// Updated auth routes
