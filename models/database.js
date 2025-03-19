@@ -104,4 +104,5 @@ db.serialize(() => {
     console.log("Database setup complete. Default data ensured.");
 });
 
-module.exports = db; 
+module.exports = db;   
+// Updated database setup
