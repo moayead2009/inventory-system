@@ -1,0 +1,31 @@
+# How to Run the Inventory Management System
+
+## Prerequisites:
+- Install Node.js if not already installed.
+- Ensure you have Git installed.
+
+## Installation Steps:
+1. Clone the repository:
+   git clone https://github.com/moayead2009/inventory-system.git
+   cd inventory-system
+
+2. Install dependencies:
+   npm install
+
+3. Generate the database (if missing):
+   node models/database.js
+
+4. Start the server:
+   node server.js
+
+5. Open the application in your browser:
+   http://localhost:3000/
+
+## Default Login Credentials:
+You need to signup using any email and password, then use is to login.
+
+
+## Notes:
+- Ensure SQLite database (inventory.db) exists in the models/ folder.
+- If the database file (inventory.db) is missing, run this command to generate it:
+  node models/database.js
