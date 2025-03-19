@@ -110,3 +110,4 @@ exports.updateProduct = (req, res) => {
         }
     );
 };
+// Added product CRUD operations
