@@ -1,3 +1,4 @@
 node_modules/
 inventory.db
 .env
+.DS_Store
